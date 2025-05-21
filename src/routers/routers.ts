@@ -17,8 +17,7 @@ const users_controller = new UsersController()
 import { AdminAuthorization } from '../middleware/AdminAuthorization'
 const admin_authorization = new AdminAuthorization()
 
-import { RecoverPassController } from '../controllers/recoverPassController'
-const recover_pass_controller = new RecoverPassController()
+
 
 
 // orcamentos
@@ -60,7 +59,7 @@ router.delete('/servico/:id', servicos_controller.deleteServico)
 router.post('/user',  users_controller.createUser)
 router.post('/login', users_controller.login)
 
-router.post('/recover-password', recover_pass_controller.recoverRequest)
+
 
 router.get('/user/:id', admin_authorization.auth, users_controller.findUserById)
 router.get('/users',  users_controller.findAllUsers)
