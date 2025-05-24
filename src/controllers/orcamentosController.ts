@@ -69,6 +69,21 @@ export class OrcamentosController {
     }
 
 
+    async findOrcamentoByView(request: Request, response: Response) {
+
+        try {
+            
+            let orcamento_view = new Orcamentos()
+            let orcamento_view_found = await orcamento_view.findByView()
+
+            return response.status(200).json(orcamento_view_found)
+        } catch (error) {
+            
+            console.error(error)
+        }
+    }
+
+
     async updateOrcamento(request: Request, response: Response) {
 
         try {

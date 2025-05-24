@@ -64,7 +64,7 @@ export class Orcamentos implements IOrcamentos {
         
         try {
             
-            const orcamentos_view : IOrcamentos = await knexInstance.select('*').from('view_orcamentos')
+            const orcamentos_view : IOrcamentos = await knexInstance.select('*').from('view_orcamentos_clientes')
 
             return orcamentos_view
 
