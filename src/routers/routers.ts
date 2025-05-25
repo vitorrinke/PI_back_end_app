@@ -26,6 +26,7 @@ router.post('/orcamento', orcamentos_controller.createOrcamento)
 router.get('/orcamento/:id', orcamentos_controller.findOrcamentoById)
 router.get('/orcamentos', orcamentos_controller.findAllOrcamentos)
 router.get('/view_orcamentos', orcamentos_controller.findOrcamentoByView)
+router.get('/view_all_orcamentos', orcamentos_controller.findOrcamentosByView)
 
 router.put('/orcamento/:id', orcamentos_controller.updateOrcamento)
 

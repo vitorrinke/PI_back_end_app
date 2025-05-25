@@ -18,6 +18,8 @@ export interface IOrcamentos {
 
     findByView(): Promise<IOrcamentos | undefined>
 
+    findAllByView(): Promise<IOrcamentos | undefined>
+
     update(id: number,
         id_cliente: number,
         descricao: string,

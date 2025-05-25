@@ -75,6 +75,21 @@ export class Orcamentos implements IOrcamentos {
     }
 
 
+    async findAllByView(): Promise<IOrcamentos | undefined> {
+        
+        try {
+            
+            const orcamentos_all_view : IOrcamentos = await knexInstance.select('*').from('view_orcamentos')
+
+            return orcamentos_all_view
+
+        } catch (error) {
+            console.error(error)
+            
+        }
+    }
+
+
     async update(id: number, id_cliente: number,
         descricao: string,
         status: string,
