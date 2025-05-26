@@ -70,6 +70,21 @@ export class Users implements Iusers {
     }
 
 
+    async findByView(): Promise<Iusers | undefined> {
+        
+        try {
+            
+            const users_view: Iusers = await knexInstance.select(['*'
+            ]).from('view_clientes')
+
+            return users_view
+
+        } catch (error) {
+
+            console.error(error)
+        }
+    }
+
     async findByEmail(email: string): Promise<Iusers | undefined> {
         
         try {

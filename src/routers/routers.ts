@@ -65,6 +65,7 @@ router.post('/login', users_controller.login)
 
 router.get('/user/:id', admin_authorization.auth, users_controller.findUserById)
 router.get('/users',  users_controller.findAllUsers)
+router.get('/view_users', users_controller.findUsersByView)
 
 router.put('/user/:id', admin_authorization.auth,users_controller.updateUser)
 

@@ -76,6 +76,22 @@ export class UsersController {
     }
 
 
+async findUsersByView(request: Request, response: Response) {
+
+        try {
+            
+            let users_view = new Users()
+            let users_view_found = await users_view.findByView()
+
+            return response.status(200).json(users_view_found)
+
+        } catch (error) {
+            
+            console.error(error)
+        }
+    }
+
+
     async updateUser(request : Request, response: Response) {
         
         try {

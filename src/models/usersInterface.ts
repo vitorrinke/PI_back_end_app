@@ -25,6 +25,9 @@ export interface Iusers {
 
     findAll(): Promise<Iusers | undefined>
 
+    
+    findByView(): Promise<Iusers | undefined>
+
 
     findByEmail(email: string): Promise<Iusers | undefined>
 
