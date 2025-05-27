@@ -51,6 +51,7 @@ router.post('/servico', servicos_controller.createServico)
 router.get('/servico/:id', servicos_controller.findServicoById)
 router.get('/servicos', servicos_controller.findAllServicos)
 router.get('/view_servicos', servicos_controller.findServicoByView)
+router.get('/view_servicos_view', servicos_controller.findAllServicoByView)
 
 router.put('/servico/:id', servicos_controller.updateServico)
 
