@@ -16,6 +16,8 @@ export interface IServicos {
 
     findAllByView(): Promise<IServicos | undefined>
 
+    findMeuView(): Promise<IServicos | undefined>
+
     update(id: number, nome_servico: string, tipo_cobranca: string, valor_unitario: number): Promise<IServicos | undefined>
 
     delete(id: number): Promise<IServicos | undefined> 

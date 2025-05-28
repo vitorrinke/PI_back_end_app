@@ -95,6 +95,22 @@ export class ServicosController {
     }
 
 
+    async findMeuServicosView(request: Request, response: Response) {
+
+        try {
+            
+            let meu_servicos_view = new Servicos()
+            let found_meu_servicos_view = await meu_servicos_view.findMeuView()
+
+            return response.status(200).json(found_meu_servicos_view)
+
+        } catch (error) {
+            console.error(error)
+            
+        }
+    }
+
+
     async updateServico(request: Request, response: Response) {
 
         try {

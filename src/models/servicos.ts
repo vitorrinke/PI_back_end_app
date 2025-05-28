@@ -84,6 +84,20 @@ export class Servicos implements IServicos {
     }
 
 
+    async findMeuView(): Promise<IServicos | undefined> {
+        
+        try {
+            
+            const meu_servicos_view: IServicos = await knexInstance.select('*').from('view_meus_servicos')
+            
+            return meu_servicos_view
+
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
     async update(id: number, nome_servico: string, tipo_cobranca: string, valor_unitario: number): Promise<IServicos | undefined> {
         
         try {
