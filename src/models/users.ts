@@ -90,7 +90,7 @@ export class Users implements Iusers {
         try {
             
             const user: Iusers = await knexInstance.select([
-                "nome", "email", "senha", "telefone", "tipo_user", "data_criacao"
+                "id", "nome", "email", "senha", "telefone", "tipo_user", "data_criacao"
             ]).where({email: email}).table('users').first()
             
             return user

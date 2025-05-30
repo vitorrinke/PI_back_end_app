@@ -27,6 +27,7 @@ router.get('/orcamento/:id', orcamentos_controller.findOrcamentoById)
 router.get('/orcamentos', orcamentos_controller.findAllOrcamentos)
 router.get('/view_orcamentos', orcamentos_controller.findOrcamentoByView)
 router.get('/view_all_orcamentos', orcamentos_controller.findOrcamentosByView)
+router.get('/view_orcamentos_meu_servicos/:id_cliente', orcamentos_controller.findMeuOrcamentoByView)
 
 router.put('/orcamento/:id', orcamentos_controller.updateOrcamento)
 
@@ -38,6 +39,7 @@ router.post('/orcamento_iten', orcamento_itens_controller.createOrcamentoIten)
 
 router.get('/orcamento_iten/:id', orcamento_itens_controller.findOrcamentoItenById)
 router.get('/orcamento_itens', orcamento_itens_controller.findAllOrcamentoItens)
+
 
 router.put('/orcamento_iten/:id', orcamento_itens_controller.updateOrcamentoIten)
 

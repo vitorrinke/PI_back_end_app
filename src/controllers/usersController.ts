@@ -156,13 +156,13 @@ async findUsersByView(request: Request, response: Response) {
             }
     
             const token = jwt.sign(
-                { email: found_user.email, admin: found_user.tipo_user },
+                { email: found_user.email, admin: found_user.tipo_user, user:found_user.id },
                 process.env.SECRET as jwt.Secret,
                 { expiresIn: 6000 }
             );
     
             return response.status(200).json({ message: 'Login bem-sucedido.', token,
-                 admin: found_user.tipo_user });
+                 admin: found_user.tipo_user, user: found_user.id });
     
         } catch (error) {
             console.error("Erro no login:", error);
@@ -171,36 +171,5 @@ async findUsersByView(request: Request, response: Response) {
     }
 
 
-    // async login(request: Request, response: Response) {
-
-    //     try {
-            
-    //         let data = request.body
-
-    //     let user = new Users()
-    //     let found_user = await user.findByEmail(data.email)
-
-    //     if (!found_user) {
-    //         return response.status(404).json({response: 'usuario não encontrado'})
-    //     }
-
-    //     if (found_user.senha && typeof found_user.senha === 'string') {
-    //         let ispassword = bcrypt.compareSync(data.password, found_user.senha)
-
-    //         if (ispassword) {
-    //             let token = jwt.sign({email: data.email, admin: found_user.tipo_user },
-    //                 process.env.SECRET as jwt.Secret,
-    //                 {expiresIn: 6000})
-
-    //             response.status(200).json({response: ispassword, token: token})
-
-    //         } else {
-    //             response.status(406).json({response: ispassword, message: 'senha invalida'})
-    //         }
-    //     }
-
-    //     } catch (error) {
-    //         console.error(error)    
-    //     }        
-    // }
+    
 }

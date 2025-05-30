@@ -90,6 +90,24 @@ export class Orcamentos implements IOrcamentos {
     }
 
 
+    async findMeuByView(id_cliente: number): Promise<IOrcamentos[] | undefined> {
+        
+        try {
+            
+            const orcamentos_meu_view: IOrcamentos[] = await knexInstance.select('*')
+            .from('view_orcamentos_meu_servicos')
+            .where('seuCodigo', id_cliente)
+            
+
+            return orcamentos_meu_view
+
+        } catch (error) {
+            console.error(error)
+            
+        }
+    }
+
+
     async update(id: number, id_cliente: number,
         descricao: string,
         status: string,

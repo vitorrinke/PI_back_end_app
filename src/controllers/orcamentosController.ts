@@ -99,6 +99,27 @@ export class OrcamentosController {
     }
 
 
+    async findMeuOrcamentoByView(request: Request, response: Response) {
+
+        try {
+            
+            let id_cliente = parseInt(request.params.id_cliente)
+
+            if(isNaN(id_cliente)) {
+                response.status(400).json({response: 'id invalido'})
+            }
+
+            let orcamento_meu_view = new Orcamentos()
+            let orcamento_meu_view_found = await orcamento_meu_view.findMeuByView(id_cliente)
+
+            return response.status(200).json(orcamento_meu_view_found)
+        } catch (error) {
+            
+            console.error(error)
+        }
+    }
+
+
     async updateOrcamento(request: Request, response: Response) {
 
         try {
