@@ -46,12 +46,12 @@ import { IOrcamentoItens } from "./orcamentoItensInterface";
     }
 
 
-    async findAll(): Promise<IOrcamentoItens | undefined> {
+    async findAllById(id_orcamento: number): Promise<IOrcamentoItens[] | undefined> {
 
         try {
             
-            const orcamento_itens: IOrcamentoItens = await knexInstance.select('*')
-            .table('orcamento_itens')
+            const orcamento_itens: IOrcamentoItens[] = await knexInstance.select('*')
+            .from('orcamento_itens').where('id_orcamento', id_orcamento)
         
          return orcamento_itens
         

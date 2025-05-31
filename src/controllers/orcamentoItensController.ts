@@ -52,12 +52,18 @@ export class OrcamentoItensController {
     }
 
 
-    async findAllOrcamentoItens(request: Request, response: Response) {
+    async findAllOrcamentoItensById(request: Request, response: Response) {
 
         try {
             
+            const { id_orcamento } = request.params;
+
+            if (!id_orcamento) {
+            return response.status(400).json({ error: 'ID do orçamento é obrigatório.' });
+            }
+
             let orcamento_itens = new OrcamentoItens()
-            let all_orcamento_itens = await orcamento_itens.findAll()
+            let all_orcamento_itens = await orcamento_itens.findAllById(Number(id_orcamento))
 
             return response.status(200).json(all_orcamento_itens)
         } catch (error) {
