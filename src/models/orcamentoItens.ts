@@ -10,7 +10,6 @@ import { IOrcamentoItens } from "./orcamentoItensInterface";
             id_orcamento: number,
             id_servico: number,
             quantidade: number,
-            valor_total: number,
             valor_unitario: number})
 
         : Promise<IOrcamentoItens | undefined> {
@@ -44,6 +43,23 @@ import { IOrcamentoItens } from "./orcamentoItensInterface";
         }
     
     }
+
+
+    async findAll(id_orcamento: number): Promise<IOrcamentoItens[] | undefined> {
+
+        try {
+            
+            const orcamento_itens: IOrcamentoItens[] = await knexInstance.select('*')
+            .from('view_orcamento_itens_detalhado').where('id_orcamento', id_orcamento) 
+        
+         return orcamento_itens
+        
+        } catch{
+
+            console.error(error)
+        }
+     }
+
 
 
     async findAllById(id_orcamento: number): Promise<IOrcamentoItens[] | undefined> {

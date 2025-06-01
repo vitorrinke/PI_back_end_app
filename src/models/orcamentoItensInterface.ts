@@ -6,12 +6,13 @@ export interface IOrcamentoItens {
         id_orcamento: number,
         id_servico: number,
         quantidade: number,
-        valor_total: number,
         valor_unitario: number
 
     }) : Promise<IOrcamentoItens | undefined>
 
     findById(id: number): Promise<IOrcamentoItens | undefined>
+
+    findAll(id_orcamento: number): Promise<IOrcamentoItens[] | undefined>
 
     findAllById(id_orcamento: number): Promise<IOrcamentoItens[] | undefined>
 

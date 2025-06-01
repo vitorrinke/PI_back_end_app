@@ -12,7 +12,6 @@ export class OrcamentoItensController {
             id_orcamento: request.body.id_orcamento,
             id_servico: request.body.id_servico,
             quantidade: request.body.quantidade,
-            valor_total: request.body.valor_total,
             valor_unitario: request.body.valor_unitario    
             }
 
@@ -44,6 +43,28 @@ export class OrcamentoItensController {
             let orcamento_iten_found = await orcamento_iten.findById(id)
 
             return response.status(200).json(orcamento_iten_found)
+
+        } catch (error) {
+            
+            console.error(error)
+        }
+    }
+
+
+    async findAllOrcamentoItens(request: Request, response: Response) {
+
+        try {
+            
+            const { id_orcamento } = request.params;
+
+            if (!id_orcamento) {
+            return response.status(400).json({ error: 'ID do orçamento é obrigatório.' });
+            }
+
+            let orcamento_itens = new OrcamentoItens()
+            let all_orcamento_itens = await orcamento_itens.findAll(Number(id_orcamento))
+
+            return response.status(200).json(all_orcamento_itens)
 
         } catch (error) {
             

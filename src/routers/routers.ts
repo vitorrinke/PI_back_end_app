@@ -38,6 +38,7 @@ router.delete('/orcamento/:id', orcamentos_controller.deleteOrcamento)
 router.post('/orcamento_iten', orcamento_itens_controller.createOrcamentoIten)
 
 router.get('/orcamento_iten/:id', orcamento_itens_controller.findOrcamentoItenById)
+router.get('/orcamento_itens/:id_orcamento', orcamento_itens_controller.findAllOrcamentoItens)
 router.get('/orcamento_itens/:id_orcamento', orcamento_itens_controller.findAllOrcamentoItensById)
 
 
